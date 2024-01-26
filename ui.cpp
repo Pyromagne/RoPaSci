@@ -18,18 +18,6 @@ UI::UI(sf::Vector2f viewSize)
 	CenterText();
 }
 
-UI::~UI()
-{
-}
-
-void UI::MoveUp()
-{
-}
-
-void UI::MoveDown()
-{
-}
-
 void UI::SetText(std::string* menuText) {
 	for (int i = 0; i < MAX_NUM_OF_TEXT_ITEMS; i++) {
 		this->menuText[i] = menuText[i];

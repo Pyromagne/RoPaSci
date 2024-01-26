@@ -8,9 +8,6 @@ class UI
 {
 	public:
 		UI(sf::Vector2f viewSize);
-		~UI();
-		void MoveUp();
-		void MoveDown();
 		void SetText(std::string* menuText);
 		void SetText(int element, std::string text);
 		void CenterText();
