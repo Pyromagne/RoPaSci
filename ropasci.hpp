@@ -15,7 +15,6 @@ class Game
 {
     public:
     Game();
-	//~Game();
     void run(void);
     void update(sf::RenderWindow&);
     void draw(sf::RenderWindow&);
@@ -46,7 +45,6 @@ class Game
     sf::Texture arrow;
     sf::Sprite arrowSprite;
     int arrowNum;
-
 
     //menu UI
     sf::Text titleText;
@@ -82,8 +80,6 @@ class Game
     sf::Sprite cloudSprite;
     sf::Clock cloudClock;
     bool cloudBack = false;
-
-
 
     sf::Texture gameplay;
     sf::Sprite gameplaySprite;

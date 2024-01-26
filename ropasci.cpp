@@ -147,8 +147,6 @@
             std::cout<<"Image: success loading file"<<std::endl;
         }
 
-
-
         rock.setSmooth(true);
         paper.setSmooth(true);
         scissors.setSmooth(true);
@@ -205,8 +203,6 @@
         logoBigSprite.setOrigin(250.f, 76.f);
         logoBigSprite.setPosition(400.f, 300.f);
 
-        //while(splashLogoClock.getElapsedTime().asMilliseconds() != 4500.f);
-
         // Start the game loop
         while (mainWindow.isOpen())
         {
@@ -218,7 +214,6 @@
                 {
                     mainWindow.close();
                 }
-
                 update(mainWindow);
             }
 
@@ -227,7 +222,6 @@
                 menuAnimation(arrowRect);
             }
 
-
             if(isGameplay)
             {
                 cloudAnimation(cloudRect);
@@ -235,7 +229,6 @@
 
             if(splashAnimationTimer2 != 500)
             {
-                std::cout<<splashAnimationTimer2<<std::endl;
                 splashLogo(mainWindow);
                 logoBigSprite.setColor(sf::Color(255,255,255,splashAnimationTimer));
             }
@@ -243,7 +236,6 @@
             mainWindow.clear(sf::Color::Black);
             draw(mainWindow);
             mainWindow.display();
-
         }
     }
 
@@ -289,22 +281,20 @@
                     {
                         mainWindow.close();
                     }
-
-
                 }
-                    if (arrowNum == 0)
-                    {
-                        arrowSprite.setPosition(15.f, 300.f);
-                    }
-                    else if (arrowNum == 1)
-                    {
-                        arrowSprite.setPosition(15.f, 350.f);
-                    }
-                    else if (arrowNum == 2)
-                    {
-                        arrowSprite.setPosition(15.f, 400.f);
-                    }
-
+            
+                if (arrowNum == 0)
+                {
+                    arrowSprite.setPosition(15.f, 300.f);
+                }
+                else if (arrowNum == 1)
+                {
+                    arrowSprite.setPosition(15.f, 350.f);
+                }
+                else if (arrowNum == 2)
+                {
+                    arrowSprite.setPosition(15.f, 400.f);
+                }
             }
         }
 
@@ -313,15 +303,14 @@
             userScoreText.setString("Score: " + std::to_string(userScore));
             botScoreText.setString("Score: " + std::to_string(botScore));
 
-
             if (event.type == sf::Event::KeyPressed)
             {
                 if (event.key.code == sf::Keyboard::Escape)
-                    {
-                        isMainMenu = true;
-                        isAbout = false;
-                        isGameplay= false;
-                    }
+                {
+                    isMainMenu = true;
+                    isAbout = false;
+                    isGameplay= false;
+                }
             }
             if (userScore == maxScore || botScore == maxScore)
             {
@@ -332,7 +321,6 @@
                 userScore = 0;
                 botScore = 0;
             }
-
             battle();
 
         }
@@ -341,17 +329,13 @@
             if (event.type == sf::Event::KeyPressed)
             {
                 if (event.key.code == sf::Keyboard::Escape)
-                    {
-                        isMainMenu = true;
-                        isAbout = false;
-                        isGameplay= false;
-                    }
+                {
+                    isMainMenu = true;
+                    isAbout = false;
+                    isGameplay= false;
+                }
             }
         }
-        
-
-
-
     }
 
     void Game::draw(sf::RenderWindow& mainWindow)
@@ -375,7 +359,6 @@
             mainWindow.clear(sf::Color::Black);
             mainWindow.draw(logoBigSprite);
         }
-
     }
 
     void Game::initMenu(void)
@@ -415,41 +398,36 @@
         inst.setFillColor(sf::Color::Black);
 
         inst.setString
-(R"(A Rock Paper Scissors game made by Pyromagne
-using SFML (Simple and Fast Media Library).
+        (R"(A Rock Paper Scissors game made by Pyromagne
+        using SFML (Simple and Fast Media Library).
 
-Instruction:
-Rock wins over scissors (rock smashes scissors)
-Scissors wins over paper (scissors cut paper)
-Paper wins over rock (paper covers rock)
+        Instruction:
+        Rock wins over scissors (rock smashes scissors)
+        Scissors wins over paper (scissors cut paper)
+        Paper wins over rock (paper covers rock)
 
-R - rock
-P - paper
-S - Scissors
+        R - rock
+        P - paper
+        S - Scissors
 
-Music:
-Max Manie - Sunday (KlangTherapeuten Remix)
-Font:
-Simon Thomaschke - Bubblegun
-Carlos Flores - Pixle Font
-
-)");
-
-
+        Music:
+        Max Manie - Sunday (KlangTherapeuten Remix)
+        Font:
+        Simon Thomaschke - Bubblegun
+        Carlos Flores - Pixle Font
+        )");
     }
 
     void Game::drawAbout(sf::RenderWindow& mainWindow)
     {
         mainWindow.draw(gameMenuSprite);
         mainWindow.draw(inst);
-
         mainWindow.draw(logoSmallSprite);
         mainWindow.draw(pyromagne);
     }
 
     void Game::menuAnimation(sf::IntRect& arrowRect)
     {
-
         if (arrowClock.getElapsedTime().asMilliseconds() > 50.f)
         {
             if (arrowRect.left == 343)
@@ -486,11 +464,6 @@ Carlos Flores - Pixle Font
                 }
                 else cloudRect.left -= 1;
             }
-
-
-
-
-
             cloudSprite.setTextureRect(cloudRect);
             cloudSprite.setTexture(cloud);
             cloudClock.restart();
@@ -506,7 +479,6 @@ Carlos Flores - Pixle Font
                 splashAnimationTimer = splashAnimationTimer + 2;
             }
             splashAnimationTimer2 = splashAnimationTimer2 + 2;
-
         }
         splashLogoAnimation.restart();
     }
@@ -559,7 +531,6 @@ Carlos Flores - Pixle Font
         textRect = loser.getLocalBounds();
         std::cout<<textRect.width<<std::endl;
         std::cout<<textRect.height<<std::endl;
-
     }
 
     void Game::drawGameplay(sf::RenderWindow& mainWindow)
@@ -684,9 +655,8 @@ Carlos Flores - Pixle Font
                 std::cout<<userScore<<" "<<botScore<<std::endl;
             }
         break;
-
         }
-
+        
         if (userScore == maxScore || botScore == maxScore)
         {
             mainWindow.clear();
@@ -739,4 +709,5 @@ Carlos Flores - Pixle Font
         int move = (rand() % (3 - 1 + 1)) + 1;
         return move;
     }
+
 //END OF GAME CLASS
